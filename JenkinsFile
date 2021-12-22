@@ -5,13 +5,15 @@ pipeline {
         cred = credentials('secret-file-id')
     }
 
-
     stages {
         stage ('Setting up WorkSpace') {
-            steps {
-                    sh "echo ${env.var} > 'Terraform-manifests/${env.branch}/cred-dev.json'"
-            }
-        }
+              steps {
+                withCredentials([file(credentialsId: 'Dev-Cred', variable: 'credfile')
+                {
+                    sh "cp \$credfile cred-dev.json"
+
+                }
+              }
 
         stage ('TF  INIT') {
             steps {
@@ -54,5 +56,5 @@ pipeline {
                 }
             }
         }
+        }
     }
-}
