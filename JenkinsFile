@@ -21,10 +21,10 @@ pipeline {
         stage ('TF  PLAN') {
             steps {
                     dir('Terraform-manifests/') {
-                    sh '''
-            cd {env.branch}
+                    sh """
+            cd $GIT_BRANCH
             terraform plan -input=true -lock=true  -out=terraform.tfplan  -no-color
-        '''
+        """
                     }
             }
         }
@@ -42,7 +42,11 @@ pipeline {
                     }
                     if (apply) {
                         dir('Terraform-manifests/') {
-                            sh 'terraform apply terraform.tfplan'
+
+                                   sh """
+            cd $GIT_BRANCH
+            terraform apply --auto-approve
+        """
                         }
                     }
                 }
