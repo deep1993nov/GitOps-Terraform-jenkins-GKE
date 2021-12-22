@@ -15,17 +15,17 @@ Pipeline {
             cd {env.branch}
             terraform init
         """
+             }
         }
-     }
 
           stage ('TF  PLAN'){
              dir('Terraform-manifests'){
             sh """
             cd {env.branch}
-            terraform plan -input=true -lock=true  -out=terraform.tfplan  -no-color 
+            terraform plan -input=true -lock=true  -out=terraform.tfplan  -no-color
         """
-        }
-    }
+             }
+          }
 
          stage ('TF  APPLY'){
           script{
@@ -39,9 +39,11 @@ Pipeline {
                     }
                     if(apply){
                         dir('Terraform-manifests/'){
-                            
-                            sh 'terraform apply terraform.tfplan' 
+
+                            sh 'terraform apply terraform.tfplan'
                         }
                     }
+          }
+         }
     }
 }
