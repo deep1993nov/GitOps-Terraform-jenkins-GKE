@@ -6,17 +6,7 @@ pipeline {
     }
 
     stages {
-        stage ('Setting up WorkSpace') {
-              steps {
-                withCredentials([file(credentialsId: 'Dev-Cred', variable: 'credfile')]) {
-                    dir('Terraform-manifests/') {
-                    sh 'use $credfile'
-                     }
-
-                }
-              }
-        }
-
+        
         stage ('TF  INIT') {
             steps {
                 dir('Terraform-manifests/') {
