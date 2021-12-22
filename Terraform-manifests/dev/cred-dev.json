@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "model-axe-117106",
+  "private_key_id": "70344780865a32899a7afb13ae4566dc71e03bc5",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDIsqiRifJrWpx2\nhWG38v9XRlnHmJIrkQBCi/Dzirqu+iube2eJhWci5qBlXbFjEXt2KLK1z8vxwA+8\nB9KhFw8DiygUqWmPDQk+XS+adq9NkATcxvGaZN7XPsWWZLuvyNgS6pj6LrJYALo/\nPigWyYlErAkEPUiXizdolmdv3vec1MSX2BTlVV5oDX1jSPVm31rePUKlijGDx+jJ\n7MiegRnNcFjgFcmWJbJxtA8GIZ38qVe+Lwz7HaQiZ1VOycuao3FRuToVmB9toBgZ\nw03Uzq5+43N+sEZiphNozubckIPxqi6Noc+BSH/kt3pjQznf3S1P1spJcY5WdrrE\ntoWvswfzAgMBAAECggEAB0RGkX0Anu8waUaLbTnQEbbleDJB1EGhyJiA6F8SFGwt\nuR3UvbEOqUuRg4icYIeKbQcsksbaav9REodzzLm8drPWQVCI/4tUYXEjCtWeAMBk\njK2CRq4aH8/uNnOhFG9jlljX0MRCnktG/rc2so9uPdeQa0jgZlrU+dm8on5RI2Ss\ntuy5gO3jwSNdXoollys/hxq0pOk0jImfjebXa8pBcbei8Ju1Ez528Bi06AIc9KZb\nV9BisZusrj6C+81TB0juBw0fOBCzm5xg2c+efFh0D6BXHQjiub3MrwxHGGo4dO4k\njaHzdoViobb9RM373wIxHewpfRs5m+PuK7NbcYDnUQKBgQDvir4n2jnaOd8LjHY3\nt6ghPp6Qn2pnHyLBrVrQxP4gLMW82oKJT1tUQqO4UFcY68ccj7jyHKg+lTOvLHlS\nMwKY4XLPxuoOGSRUK3hJ2ofcQuqgbJjmfoYbu6KuGEltWncdACKqsxgyYerIwOHT\n/YQ4fz14VVb64nKjwzZa+zs0LQKBgQDWfLHXA3HKE6OIaDmmEBqC8mknK0CvWgjE\n7dzQoRfwMg56kiC7R6T2H2juYJv8evqYHsdbFyB4ZB3DWMDC0XUoZI7xfGlzABmF\nZXHhemGcdcE2r59QszTU4q2CvW1hpvHdLzDCo3QRMVazEZ8N+pDOq5WE+TmRzYgE\nIu/Z1gggnwKBgCoPD1JKA8xoStxpPjyMN64Wo5q7EuCmW+Drwj1TyVb25YVCTJc1\nYtDJnpt3J8PNajl+lreUBopughOo2GhxYmxbcWBACcqN6Y4Jz+YPw7kN2spuJu6Z\nmox2BptQ0lur/awO4QddyMrX3HSBQWWKZtPQq4dcXJhSeFR+qyWQZRXFAoGBAKmH\ndalU96OZUjCG8MnpAItvvt1Oupnet/+vYlEkgx8+8WLADU75mdFPkkiX47L0IQ4L\nhdbhuLBvsXatt+5EUC3VDYahp1dWRNXDEPf/Gxfnmwf2WB4ZBzEc2bf0sXf11EXW\n/ttZBmxwau6uhuEtozc3N78anf44TcG3O40aNuJRAoGAX+X4ThKm1hivRzWSytlc\nTK1a0tQkmllDDhwIUcZFsBtoVoKuVWARlxJo4PvEjkW4lx2e+bR1KTx145dIRVos\nD+zcu4PbsXQLJSouJf89wZ6OigxoLMYV5bExVhUER5UJ5cPc30IPoXHB/XTp6Nsd\nHsDJm/A8sJtpEwCPtNyZPLY=\n-----END PRIVATE KEY-----\n",
+  "client_email": "terra-dev@model-axe-117106.iam.gserviceaccount.com",
+  "client_id": "105628854050396854512",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/terra-dev%40model-axe-117106.iam.gserviceaccount.com"
+}
