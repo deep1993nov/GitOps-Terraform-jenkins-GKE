@@ -6,13 +6,12 @@ pipeline {
     }
 
     stages {
-        
         stage ('TF  INIT') {
             steps {
                 dir('Terraform-manifests/') {
                     sh """
             cd $GIT_BRANCH
-            terraform init
+            terraform init -input=false -no-color 
         """
                 }
             }
@@ -51,6 +50,13 @@ pipeline {
                     }
                 }
             }
+        }
+
+    }
+
+    post { 
+        always { 
+            cleanWs()
         }
     }
 }
