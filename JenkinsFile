@@ -9,7 +9,9 @@ pipeline {
         stage ('Setting up WorkSpace') {
               steps {
                 withCredentials([file(credentialsId: 'Dev-Cred', variable: 'credfile')]) {
-                    sh "cp \$credfile cred-dev.json"
+                    dir('Terraform-manifests/') {
+                    sh 'use $credfile'
+                     }
 
                 }
               }
@@ -17,7 +19,7 @@ pipeline {
 
         stage ('TF  INIT') {
             steps {
-                dir('Terraform-manifests') {
+                dir('Terraform-manifests/) {
                     sh """
             cd ${env.branch}
             terraform init
@@ -28,7 +30,7 @@ pipeline {
 
         stage ('TF  PLAN') {
             steps {
-                    dir('Terraform-manifests') {
+                    dir('Terraform-manifests/') {
                     sh '''
             cd {env.branch}
             terraform plan -input=true -lock=true  -out=terraform.tfplan  -no-color
