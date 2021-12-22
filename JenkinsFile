@@ -3,32 +3,42 @@ pipeline {
     stages {
 
         stage ('Setting up WorkSpace'){
-           withCredentials([file(credentialsId: 'Dev-Cred', variable: 'cred-file')
+            steps{
+                withCredentials([file(credentialsId: 'Dev-Cred', variable: 'cred-file')
                 {
                     sh "cp \$cred-file cred-dev.json"
                 }
+            }
+
         }
 
         stage ('TF  INIT'){
-             dir('Terraform-manifests'){
+            steps{
+                dir('Terraform-manifests'){
             sh """
             cd {env.branch}
             terraform init
         """
-             }
+                }
+            }
+
         }
 
           stage ('TF  PLAN'){
-             dir('Terraform-manifests'){
+              steps{
+                    dir('Terraform-manifests'){
             sh """
             cd {env.branch}
             terraform plan -input=true -lock=true  -out=terraform.tfplan  -no-color
         """
-             }
+                    }
+              }
+
           }
 
          stage ('TF  APPLY'){
-          script{
+             steps{
+                 script{
                     def apply = false
                     try {
                         input message: 'Can you please confirm the apply', ok: 'Ready to Apply the Config'
@@ -43,7 +53,9 @@ pipeline {
                             sh 'terraform apply terraform.tfplan'
                         }
                     }
-          }
+                 }
+             }
+
          }
     }
 }
