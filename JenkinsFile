@@ -1,12 +1,15 @@
 pipeline {
     agent any
+
+    environment {
+        SECRET_FILE_ID = credentials('secret-file-id')
+    }
+
+
     stages {
         stage ('Setting up WorkSpace') {
             steps {
-                withCredentials([file(credentialsId: 'Dev-Cred', variable: 'cred-file')])
-                {
-                    sh "cp \$cred-file cred-dev.json"
-                }
+                    sh "echo $var > 'Terraform-manifests/${env.branch}/cred-dev.json'"
             }
         }
 
