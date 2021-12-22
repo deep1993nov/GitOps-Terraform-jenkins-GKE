@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        cred = credentials('secret-file-id')
+        GOOGLE_APPLICATION_CREDENTIALS  = credentials('Dev-Cred')
     }
 
     stages {
