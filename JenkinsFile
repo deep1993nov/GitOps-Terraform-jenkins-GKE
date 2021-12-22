@@ -3,7 +3,7 @@ pipeline {
     stages {
 
         stage ('Setting up WorkSpace'){
-            steps{
+            steps {
                 withCredentials([file(credentialsId: 'Dev-Cred', variable: 'cred-file')
                 {
                     sh "cp \$cred-file cred-dev.json"
@@ -13,7 +13,7 @@ pipeline {
         }
 
         stage ('TF  INIT'){
-            steps{
+            steps {
                 dir('Terraform-manifests'){
             sh """
             cd {env.branch}
@@ -25,7 +25,7 @@ pipeline {
         }
 
           stage ('TF  PLAN'){
-              steps{
+              steps {
                     dir('Terraform-manifests'){
             sh """
             cd {env.branch}
@@ -37,7 +37,7 @@ pipeline {
           }
 
          stage ('TF  APPLY'){
-             steps{
+             steps {
                  script{
                     def apply = false
                     try {
