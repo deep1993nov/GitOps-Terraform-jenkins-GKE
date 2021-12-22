@@ -19,7 +19,7 @@ pipeline {
 
         stage ('TF  INIT') {
             steps {
-                dir('Terraform-manifests/) {
+                dir('Terraform-manifests/') {
                     sh """
             cd ${env.branch}
             terraform init
