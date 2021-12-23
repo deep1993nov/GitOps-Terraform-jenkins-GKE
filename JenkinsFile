@@ -41,7 +41,7 @@ pipeline {
                     } catch (err) {
                         apply = false
                         currentBuild.result = 'UNSTABLE'
-                        throw new FlowInterruptedException(Result.ABORTED)
+                        error('Stopping early…')
                     }
                 }
             }
