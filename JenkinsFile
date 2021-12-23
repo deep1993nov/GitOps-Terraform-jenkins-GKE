@@ -32,7 +32,8 @@ pipeline {
 
         stage ('USER_CHOICE') {
             steps {
-             input message: 'Do you want to apply the terraform plan', ok: 'Apply the plan'
+                input message: 'Do you want to apply the terraform plan', ok: 'Apply the plan'
+            }
         }
 
         stage ('TF  APPLY') {
