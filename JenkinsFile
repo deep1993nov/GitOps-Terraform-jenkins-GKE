@@ -11,7 +11,7 @@ pipeline {
                 dir('Terraform-manifests/') {
                     sh """
             cd $GIT_BRANCH
-            terraform init -input=false -no-color 
+            terraform init -input=false -no-color
         """
                 }
             }
@@ -28,17 +28,25 @@ pipeline {
             }
         }
 
-
         stage ('TF  APPLY') {
-            
             steps {
                 script {
+                    def apply = false
+                    try {
+                        input message: 'Can you please confirm the apply', ok: 'Ready to Apply the Config'
+                        apply = true
+                    } catch (err) {
+                        apply = false
+                        currentBuild.result = 'UNSTABLE'
+                    }
+                    if (apply) {
                         dir('Terraform-manifests/') {
                             sh """
             cd $GIT_BRANCH
             terraform apply --auto-approve -no-color
         """
                         }
+                    }
                 }
             }
         }
