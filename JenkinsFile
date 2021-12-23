@@ -32,19 +32,7 @@ pipeline {
 
         stage ('USER_CHOICE') {
             steps {
-                script {
-                    apply = false
-                    try {
-                        input message: 'Can you please confirm the apply', ok: 'Ready to Apply the Config'
-                        print('User Submitted Choice')
-                        apply = true
-                    } catch (err) {
-                        apply = false
-                        currentBuild.result = 'UNSTABLE'
-                        error('Stopping early…')
-                    }
-                }
-            }
+             input message: 'Do you want to apply the terraform plan', ok: 'Apply the plan'
         }
 
         stage ('TF  APPLY') {
