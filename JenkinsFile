@@ -1,12 +1,12 @@
 pipeline {
-    agent none
+    agent any
+
+    environment {
+        GOOGLE_APPLICATION_CREDENTIALS  = credentials('Dev-Cred')
+    }
 
     stages {
         stage ('TF  INIT') {
-            agent any
-            environment {
-                GOOGLE_APPLICATION_CREDENTIALS  = credentials('Dev-Cred')
-            }
             steps {
                 dir('Terraform-manifests/') {
                     sh """
@@ -19,10 +19,6 @@ pipeline {
         }
 
         stage ('TF  PLAN') {
-            agent any
-            environment {
-                GOOGLE_APPLICATION_CREDENTIALS  = credentials('Dev-Cred')
-            }
             steps {
                     dir('Terraform-manifests/') {
                     sh """
@@ -34,16 +30,16 @@ pipeline {
             }
         }
 
-        stage ('USER_CHOICE') {
-            steps {
-                input message: 'Do you want to apply the terraform plan', ok: 'Apply the plan'
-            }
-        }
 
         stage ('TF  APPLY') {
-            agent any
-            environment {
-                GOOGLE_APPLICATION_CREDENTIALS  = credentials('Dev-Cred')
+            when {
+                expression {
+                    input message: 'Apply the PLAN?'
+                    // if input is Aborted, the whole build will fail, otherwise
+                    // we must return true to continue
+                    return true
+                }
+                beforeAgent true
             }
             steps {
                 script {
