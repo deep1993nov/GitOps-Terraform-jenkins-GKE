@@ -11,8 +11,8 @@ pipeline {
                 dir('Terraform-manifests/') {
                     sh """
             cd $GIT_BRANCH
-            terraform workspace select $GIT_BRANCH
             terraform init -input=false -no-color -migrate-state
+            terraform workspace select $GIT_BRANCH
         """
                 }
             }
