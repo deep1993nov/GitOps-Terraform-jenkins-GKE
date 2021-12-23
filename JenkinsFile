@@ -11,7 +11,7 @@ pipeline {
                 dir('Terraform-manifests/') {
                     sh """
             cd $GIT_BRANCH
-            terraform init -input=false -no-color -backend-config=${GIT_BRANCH}.tfstae
+            terraform init -input=false -no-color 
         """
                 }
             }
