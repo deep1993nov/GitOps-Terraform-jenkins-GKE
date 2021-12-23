@@ -24,7 +24,7 @@ pipeline {
                     sh """
             cd $GIT_BRANCH
             terraform workspace select $GIT_BRANCH
-            terraform plan -input=true -lock=true  -out=terraform.tfplan  -no-color
+            terraform plan -input=true  -out=terraform.tfplan  -no-color
         """
                     }
             }
@@ -36,6 +36,7 @@ pipeline {
                     apply = false
                     try {
                         input message: 'Can you please confirm the apply', ok: 'Ready to Apply the Config'
+                        print('User Submitted Choice')
                         apply = true
                     } catch (err) {
                         apply = false
