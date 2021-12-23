@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent none
 
     environment {
         GOOGLE_APPLICATION_CREDENTIALS  = credentials('Dev-Cred')
@@ -7,6 +7,7 @@ pipeline {
 
     stages {
         stage ('TF  INIT') {
+            agent any
             steps {
                 dir('Terraform-manifests/') {
                     sh """
@@ -19,6 +20,7 @@ pipeline {
         }
 
         stage ('TF  PLAN') {
+            agent any
             steps {
                     dir('Terraform-manifests/') {
                     sh """
@@ -37,6 +39,7 @@ pipeline {
         }
 
         stage ('TF  APPLY') {
+            agent any
             steps {
                 script {
                         dir('Terraform-manifests/') {
