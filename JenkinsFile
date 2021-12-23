@@ -11,6 +11,7 @@ pipeline {
                 dir('Terraform-manifests/') {
                     sh """
             cd $GIT_BRANCH
+            terraform workspace select $GIT_BRANCH
             terraform init -input=false -no-color -migrate-state
         """
                 }
@@ -22,6 +23,7 @@ pipeline {
                     dir('Terraform-manifests/') {
                     sh """
             cd $GIT_BRANCH
+            terraform workspace select $GIT_BRANCH
             terraform plan -input=true -lock=true  -out=terraform.tfplan  -no-color
         """
                     }
@@ -44,6 +46,7 @@ pipeline {
 
                                    sh """
             cd $GIT_BRANCH
+            terraform workspace select $GIT_BRANCH
             terraform apply --auto-approve -no-color
         """
                         }
