@@ -30,7 +30,7 @@ pipeline {
             }
         }
 
-        stage ('TF  APPLY') {
+        stage ('USER_CHOICE') {
             steps {
                 script {
                     apply = false
@@ -42,24 +42,27 @@ pipeline {
                         apply = false
                         currentBuild.result = 'UNSTABLE'
                     }
-                    if (apply) {
-                        dir('Terraform-manifests/') {
+                }
+            }
+        }
 
-                                   sh """
+        stage ('TF  APPLY') {
+            steps {
+                script {
+                        dir('Terraform-manifests/') {
+                            sh """
             cd $GIT_BRANCH
             terraform workspace select $GIT_BRANCH
             terraform apply --auto-approve -no-color
         """
                         }
-                    }
                 }
             }
         }
-
     }
 
-    post { 
-        always { 
+    post {
+        always {
             cleanWs()
         }
     }
