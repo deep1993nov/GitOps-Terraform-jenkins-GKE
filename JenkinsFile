@@ -31,7 +31,7 @@ pipeline {
         stage ('TF  APPLY') {
             steps {
                 script {
-                    def apply = false
+                    apply = false
                     try {
                         input message: 'Can you please confirm the apply', ok: 'Ready to Apply the Config'
                         apply = true
