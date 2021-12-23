@@ -30,15 +30,7 @@ pipeline {
 
 
         stage ('TF  APPLY') {
-            when {
-                expression {
-                    input message: 'Apply the PLAN?'
-                    // if input is Aborted, the whole build will fail, otherwise
-                    // we must return true to continue
-                    return true
-                }
-                beforeAgent true
-            }
+            
             steps {
                 script {
                         dir('Terraform-manifests/') {
