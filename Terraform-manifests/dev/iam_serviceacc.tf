@@ -8,8 +8,4 @@ resource "google_service_account" "new-SRV" {
   display_name = "terraform-created-srv5"
 }
 
-resource "google_service_account" "new-SRV1" {
-  account_id = "terraform-created-srv6"
-  display_name = "terraform-created-srv6"
-}
 
