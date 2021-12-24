@@ -3,7 +3,7 @@ resource "google_service_account" "sa-name" {
   display_name = "terraform-created-srv2"
 }
 
-resource "google_service_account" "new-SRV {
+resource "google_service_account" "new-SRV" {
   account_id = "terraform-created-srv3"
   display_name = "terraform-created-srv3"
 }
